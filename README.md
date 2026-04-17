@@ -45,15 +45,35 @@ visual-direction-skill/
 
 ### 如何安装
 
-把整个目录放到 Claude Code 的 skills 位置:
+#### Claude Code CLI
+
+把整个目录放到 skills 位置即可,Claude Code 会自动发现并在会话中实时监听变化,**不需要改 settings.json**。
 
 ```bash
 # 用户级(所有项目可用)
 cp -r visual-direction-skill ~/.claude/skills/visual-direction
 
-# 或者项目级(只在当前项目可用)
+# 或者项目级(只在当前项目可用,适合团队共享)
 cp -r visual-direction-skill .claude/skills/visual-direction
 ```
+
+放好后目录结构应该是 `~/.claude/skills/visual-direction/SKILL.md`(SKILL.md 是必需的,references/ 是可选的)。
+
+#### Claude Desktop(桌面版)
+
+**Claude Desktop 目前不支持安装自定义 skill**(没有公开的 skill 目录或上传入口)。如果你想在 Desktop 用类似能力,可以:
+
+- 在 Claude Code CLI 里使用(见上)
+- 或把 `SKILL.md` 内容直接粘贴进 Desktop 的对话作为系统提示
+
+#### Claude.ai 网页版(替代方案)
+
+网页版支持上传 skill ZIP 包:
+
+1. 把 `visual-direction-skill/` 打包成 ZIP:`zip -r visual-direction.zip visual-direction-skill/`
+2. 在 claude.ai 进入 **Settings → Capabilities → Skills**,点击上传
+
+> 参考:[Claude Code Skills 官方文档](https://code.claude.com/docs/en/skills.md)、[Use Skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 ### 触发方式
 
@@ -112,15 +132,35 @@ visual-direction-skill/
 
 ### Installation
 
-Drop the directory into Claude Code's skills location:
+#### Claude Code CLI
+
+Drop the directory into the skills location. Claude Code auto-discovers it and watches for live changes during a session — **no `settings.json` edits required**.
 
 ```bash
 # User-level (available in all projects)
 cp -r visual-direction-skill ~/.claude/skills/visual-direction
 
-# Or project-level (only in the current project)
+# Or project-level (current project only — good for team sharing)
 cp -r visual-direction-skill .claude/skills/visual-direction
 ```
+
+The resulting layout should be `~/.claude/skills/visual-direction/SKILL.md`. Only `SKILL.md` is required; `references/` is optional.
+
+#### Claude Desktop
+
+**Claude Desktop does not currently support installing custom skills** (no public skills directory or upload entry). If you want similar capability in Desktop, either:
+
+- Use the Claude Code CLI route above, or
+- Paste the contents of `SKILL.md` into a Desktop conversation as a system prompt.
+
+#### Claude.ai Web (alternative)
+
+The web app supports uploading skill ZIPs:
+
+1. Zip the directory: `zip -r visual-direction.zip visual-direction-skill/`
+2. In claude.ai, go to **Settings → Capabilities → Skills** and upload.
+
+> References: [Claude Code Skills docs](https://code.claude.com/docs/en/skills.md) · [Use Skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 
 ### How It Triggers
 
